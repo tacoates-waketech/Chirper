@@ -1,0 +1,32 @@
+<!-- templates/chirp_detail.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="chirp-entry">
+    <h2>{{ chirp.title }}</h2>
+    <p>{{ chirp.body }}</p>
+</div>
+
+<!-- comments section -->
+<div class="comments-section">
+    <h3>Comments</h3>
+    {% for comment in chirp.comment_set.all %}
+        <div class="comment">
+            <p>{{ comment.body }}</p>
+            <p>Comment by: {{ comment.chirper.username }}</p>
+        </div>
+    {% empty %}
+        <p>No comments yet.</p>
+    {% endfor %}
+</div>
+
+<!-- comment form -->
+<div class="add-comment-form">
+    <h3>Add a Comment</h3>
+    <form method="post" action="{% url 'add_comment' chirp.pk %}">
+        {% csrf_token %}
+        <textarea name="body" rows="3" cols="50"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock content %}

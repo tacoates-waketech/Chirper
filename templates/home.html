@@ -1,0 +1,11 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block content %}
+{% for chirp in chirp_list %}
+    <div class="chirp-entry">
+        <h2><a href="{% url 'chirp_detail' chirp.pk %}">{{ chirp.title }}</a></h2>
+        <p>{{ chirp.body }}</p>
+    </div>
+{% endfor %}
+{% endblock content %}
