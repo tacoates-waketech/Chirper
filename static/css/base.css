@@ -1,6 +1,14 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
+
+}
+
+.welcome-message {
+    text-align: center;
+    padding: 20px 0;
+    color: blue;
+    font-size: 24px;
 }
 
 header {
@@ -10,8 +18,13 @@ header {
 }
 
 header h1 a {
-    color:red;
+    color:blue;
     text-decoration: none;
+}
+
+header h1 a:hover {
+    text-shadow: 4px 4px 5px blue;
+    transform: scale(1.3);
 }
 
 .nav-left {
@@ -43,4 +56,43 @@ header h1 a {
 
 .chirp-entry h2 a:hover {
     color: red;
+    text-shadow: 4px 4px 5px red;
+    transform: scale(1.2);
+}
+
+.logout-link {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    color: red;
+}
+
+.create-chirp-button {
+    color: white;
+    background-color: blue;
+    font-weight: bold;
+    padding: 2px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.create-chirp-button:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 5px gray;
+    transform: scale(1.1);
+}
+
+.delete-chirp-button {
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.delete-chirp-button:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 5px gray;
+    transform: scale(1.1);
 }

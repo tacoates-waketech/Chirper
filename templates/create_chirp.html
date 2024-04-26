@@ -1,0 +1,14 @@
+<!-- templates/create_chirp.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Create a Chirp</h2>
+<form method="post" action="{% url 'create_chirp' %}">
+  {% csrf_token %}
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title"><br><br>
+  <label for="body">Body:</label><br>
+  <textarea id="body" name="body" rows="4" cols="50"></textarea><br><br>
+  <button type="submit">Create</button>
+</form>
+{% endblock %}

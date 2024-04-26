@@ -1,0 +1,25 @@
+<!-- templates/dashboard.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center;">   
+    <form method="get" action="{% url 'create_chirp' %}">
+        <button class="create-chirp-button" type="submit">Create a Chirp</button>
+    </form>
+</div>
+
+{% for chirp in chirp_list %}
+    <div class="chirp-entry">
+        <h2><a href="{% url 'chirp_detail' chirp.pk %}">{{ chirp.title }}</a></h2>
+        <p><b>Author:</b> {{ chirp.chirper }} | <b>Comments:</b> {{ chirp.comment_set.count }}</p> 
+        <p>&emsp;{{ chirp.body }}</p>
+        {% if user.is_authenticated and chirp.chirper == user %}
+            <form method="post" action="{% url 'delete_chirp' chirp.pk %}">
+                {% csrf_token %}
+                <button class="delete-chirp-button" type="submit">Delete</button>
+            </form>
+        {% endif %}
+        <hr>
+    </div>
+{% endfor %}
+{% endblock content %}

@@ -2,10 +2,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for chirp in chirp_list %}
-    <div class="chirp-entry">
-        <h2><a href="{% url 'chirp_detail' chirp.pk %}">{{ chirp.title }}</a></h2>
-        <p>{{ chirp.body }}</p>
+<div class="welcome-message">
+    <h1>Welcome to Chirper!</h1>
+    <div class="auth-links">
+        <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a>
     </div>
-{% endfor %}
+</div>
+
 {% endblock content %}
+
+{% block extracss %}
+<style>
+    /* Apply background gradient only to the home page */
+    .home-body {
+        background: linear-gradient(to right, #90cdf4, #3498db, #2c5282);
+    }
+</style>
+{% endblock %}
