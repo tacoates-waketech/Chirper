@@ -69,12 +69,15 @@ header h1 a:hover {
 }
 
 .create-chirp-button {
+    background-color: blue; 
     color: white;
-    background-color: blue;
-    font-weight: bold;
-    padding: 2px;
-    text-align: center;
+    padding: 8px;
+    border: none; 
+    cursor: pointer;
+    text-decoration: none; 
     border-radius: 5px;
+    font-family: cursive;
+    font-size: 18px;
 }
 
 .create-chirp-button:hover {
@@ -84,14 +87,45 @@ header h1 a:hover {
 }
 
 .delete-chirp-button {
+    background-color: red; 
     color: white;
-    background-color: red;
-    font-weight: bold;
-    padding: 2px;
+    padding: 8px;
+    border: none; 
+    cursor: pointer;
+    text-decoration: none; 
     border-radius: 5px;
+    font-family: cursive;
+    font-size: 18px;
+    width: 100px;
+    height: 40px;
 }
 
 .delete-chirp-button:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 5px gray;
+    transform: scale(1.1);
+}
+
+.button-container {
+    display: flex;
+}
+
+.update-chirp-button {
+    background-color: green; 
+    color: white;
+    padding: 8px;
+    border: none; 
+    cursor: pointer;
+    text-decoration: none; 
+    border-radius: 5px;
+    margin-left: 10px;
+    font-family: cursive;
+    width: 84px;
+    height: 24px;
+    text-align: center;
+}
+
+.update-chirp-button:hover {
     cursor: pointer;
     box-shadow: 4px 4px 5px gray;
     transform: scale(1.1);

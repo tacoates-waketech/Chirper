@@ -14,10 +14,13 @@
         <p><b>Author:</b> {{ chirp.chirper }} | <b>Comments:</b> {{ chirp.comment_set.count }}</p> 
         <p>&emsp;{{ chirp.body }}</p>
         {% if user.is_authenticated and chirp.chirper == user %}
+        <div class="button-container">
             <form method="post" action="{% url 'delete_chirp' chirp.pk %}">
                 {% csrf_token %}
                 <button class="delete-chirp-button" type="submit">Delete</button>
             </form>
+            <a href="{% url 'update_chirp' chirp.pk %}" class="update-chirp-button" type="button">Update</a>
+        </div>
         {% endif %}
         <hr>
     </div>

@@ -77,3 +77,14 @@ def delete_chirp(request, pk):
         chirp.delete()
         # Redirect to the dashboard 
         return redirect('dashboard')
+    
+def update_chirp(request, pk):
+    chirp = get_object_or_404(Chirp, pk=pk)
+    if request.method == 'POST':
+        form = ChirpForm(request.POST, instance=chirp)
+        if form.is_valid():
+            form.save()
+            return redirect('chirp_detail', pk=pk)
+    else:
+        form = ChirpForm(instance=chirp)
+    return render(request, 'update_chirp.html', {'form': form})

@@ -1,0 +1,11 @@
+<!-- templates/update_chirp.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Update Chirp</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="update-chirp-button">Update</button>
+</form>
+{% endblock %}

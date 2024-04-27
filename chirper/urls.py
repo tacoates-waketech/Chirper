@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ChirpListView, ChirpDetailView, AddCommentView, Home, user_login, register, user_logout, create_chirp, delete_chirp
+from .views import ChirpListView, ChirpDetailView, AddCommentView, Home, user_login, register, user_logout, create_chirp, delete_chirp, update_chirp
 
 urlpatterns = [
     path("post/<int:pk>/", ChirpDetailView.as_view(), name="chirp_detail"),
@@ -11,5 +11,6 @@ urlpatterns = [
     path('logout/', user_logout, name='logout'),
     path('create_chirp/', create_chirp, name='create_chirp'),
     path('delete_chirp/<int:pk>/', delete_chirp, name='delete_chirp'),
+    path('update_chirp/<int:pk>/', update_chirp, name='update_chirp'),
 
 ]
